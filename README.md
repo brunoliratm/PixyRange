@@ -4,16 +4,20 @@
 
 # Pixy Range
 
-## 📃 Índice
+## 📃 Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Step by Step](#step-by-step)
 - [Usage](#usage)
+  - [Calculation Example](#calculation-example)
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🛠️ Overview
+
+## Overview
 
 Pixy Range is a web tool developed to calculate the distance between the camera and an object in an image. The application allows the user to input three essential data points:
 
@@ -23,7 +27,7 @@ Pixy Range is a web tool developed to calculate the distance between the camera 
 
 With this information, the application quickly and accurately calculates the distance to the object. This project is aimed at both students and researchers in computer vision, as well as photographers and digital image enthusiasts who need an intuitive tool to estimate distances.
 
-## 🎯 Features
+## Features
 
 - User-friendly and intuitive interface developed with Angular.
 - Accurate calculation of object distances in an image based on proportion formulas.
@@ -31,7 +35,7 @@ With this information, the application quickly and accurately calculates the dis
 - Support for various units (pixels, centimeters, meters).
 - Responsive and optimized for different devices.
 
-## 📂 Installation
+## Installation
 
 ### Prerequisites
 
@@ -62,7 +66,7 @@ ng serve
 4. Open your browser and go to: `http://localhost:4200/`
 
 
-## 🚀 Usage
+## Usage
 
 1. Enter the real size of the object (in meters, centimeters, or another desired unit).
 2. Enter the size of the object in the image (measured in pixels or another unit proportional to the image).
@@ -73,7 +77,7 @@ ng serve
 
 If the real size of the object is 2 meters, the size of the object in the image is 100 pixels, and the focal length of the camera is 50mm, Pixy Range will automatically calculate the approximate distance between the camera and the object using the focal length proportion formula.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Follow the steps below to collaborate on the project:
 
@@ -83,7 +87,7 @@ Contributions are welcome! Follow the steps below to collaborate on the project:
 4. Push your branch: `git push origin my-feature`
 5. Open a Pull Request.
 
-## ⚖️ License
+## License
 
 This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
 
