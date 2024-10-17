@@ -50,7 +50,7 @@ To run this project locally, you will need:
 1. Clone the repository:
   ```bash
   git clone https://github.com/brunoliratm/PixyRange.git
-  cd PixyRange/project
+  cd PixyRange
   ```
 
 2. Install the dependencies:

@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  --md-sys-color-on-primary: #e3f2fd;
+  --md-sys-color-surface: #e3f2fd;
+}
+
+#toolbar-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #e3f2fd;
+}
+#toolbar-container mat-toolbar {
+  border-radius: 0 0 28px 28px;
+  background-color: var(--md-sys-color-primary, #ffffff);
+  color: var(--md-sys-color-on-primary, white);
+  font-size: 24px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+#toolbar-container mat-icon {
+  font-size: 28px;
+}
+#toolbar-container img {
+  height: 40px;
+  margin-left: 8px;
+}
+#toolbar-container .example-spacer {
+  flex-grow: 1;
+}
+#toolbar-container button[mat-icon-button] {
+  background-color: var(--md-sys-color-surface, white);
+  color: var(--md-sys-color-on-surface, #3f51b5);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+#toolbar-container button[mat-icon-button]:hover {
+  background-color: var(--md-sys-color-secondary-container, #e3f2fd);
+}
+#toolbar-container button[mat-icon-button] mat-icon {
+  font-size: 24px;
+}
+#toolbar-container ::ng-deep mat-menu .mat-menu-content {
+  background-color: white !important;
+}
+#toolbar-container ::ng-deep mat-menu button.mat-menu-item {
+  color: black !important;
+}
+#toolbar-container ::ng-deep mat-menu button.mat-menu-item:hover {
+  background-color: #f0f0f0 !important;
+}
+#toolbar-container ::ng-deep mat-menu mat-icon {
+  color: black !important;
+}
+
+#main-container {
+  display: flex;
+  height: 70vh;
+}
+
+#leftside-container {
+  flex: 1;
+  background-color: lightblue;
+}
+
+#rightside-container {
+  flex: 2;
+  background-color: lightgreen;
+}/*# sourceMappingURL=app.component.css.map */

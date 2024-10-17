@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "pixyrange",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:project": "node dist/project/server/server.mjs"
+    "serve:ssr:pixyrange": "node dist/pixyrange/server/server.mjs"
   },
   "private": true,
   "dependencies": {
