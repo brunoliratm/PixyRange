@@ -1,0 +1,5 @@
+<div class="exif-reader-container">
+  <h3>Selecione uma imagem para obter a distância focal</h3>
+  <input type="file" id="uploadImg" (change)="onFileSelected($event)" accept="image/*" />
+  <p *ngIf="focalLength">Distância Focal: {{ focalLength }} mm</p>
+</div>

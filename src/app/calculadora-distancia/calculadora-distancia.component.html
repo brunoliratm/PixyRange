@@ -1,0 +1,24 @@
+<div class="calculadora-distancia-container">
+  <h3>Calcular Distância do Objeto</h3>
+
+  <form (ngSubmit)="calcularDistancia()">
+    <div class="input-field">
+      <label for="realSize">Tamanho real do objeto (em cm)</label>
+      <input type="number" id="realSize" [(ngModel)]="realSize" name="realSize" required />
+    </div>
+
+    <div class="input-field">
+      <label for="objectSizeInImage">Largura do objeto na imagem (em pixels)</label>
+      <input type="number" id="objectSizeInImage" [(ngModel)]="objectSizeInImage" name="objectSizeInImage" required />
+    </div>
+
+    <div class="input-field">
+      <label for="focalLength">Distância focal da câmera (em mm)</label>
+      <input type="number" id="focalLength" [(ngModel)]="focalLength" name="focalLength" required />
+    </div>
+
+    <button type="submit" mat-flat-button>Calcular Distância</button>
+  </form>
+
+  <p *ngIf="distancia !== null">Distância Calculada: {{ distancia }} metros</p>
+</div>
