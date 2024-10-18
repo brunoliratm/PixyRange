@@ -26,4 +26,5 @@ declare var EXIF: any;
 })
 export class AppComponent {
   title = 'Pixy Range';
+
 }

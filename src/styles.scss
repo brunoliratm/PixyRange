@@ -1,20 +1,6 @@
+
 @use '@angular/material' as mat;
-
 @include mat.core();
-
-$theme: mat.define-theme((
-  color: (
-    theme-type: light
-  ),
-  typography: (
-    brand-family: 'Comic Sans',
-    bold-weight: 900
-  ),
-  density: (
-    scale: -1
-  )
-));
-/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-declare var EXIF: any; // Importando a biblioteca EXIF.js
+import { ImageService } from '../image.service';
+declare var EXIF: any;
 
 @Component({
   selector: 'app-exif-reader',
@@ -13,13 +14,18 @@ declare var EXIF: any; // Importando a biblioteca EXIF.js
 export class ExifReaderComponent {
   focalLength: number = 0;
 
+  constructor(private imageService: ImageService) {}
+
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
+        const imgSrc = reader.result as string;
+        this.imageService.setImage(imgSrc); // Envia a imagem selecionada ao serviço
+
         const img = new Image();
-        img.src = reader.result as string;
+        img.src = imgSrc;
 
         img.onload = () => {
           EXIF.getData(img, () => {
