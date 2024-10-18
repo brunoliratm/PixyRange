@@ -1,49 +1,60 @@
 import { Component, ViewChild, ElementRef, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ImageService } from '../image.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-image-selection',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './image-selection.component.html',
-  styleUrls: ['./image-selection.component.scss']
+  styleUrls: ['./image-selection.component.scss'],
 })
 export class ImageSelectionComponent implements OnInit {
-  @ViewChild('myCanvas', { static: true }) canvas: ElementRef<HTMLCanvasElement> | null = null; // Inicializado como null
-  ctx: CanvasRenderingContext2D | null = null; // Inicializado como null
-  objectSizeInImage: number = 0; // Tamanho em pixels
+  @ViewChild('myCanvas', { static: true }) canvas: ElementRef<HTMLCanvasElement> | null = null;
+  ctx: CanvasRenderingContext2D | null = null;
+  objectSizeInImage: number = 0;
+  imageSubscription: Subscription | null = null;
 
   constructor(
     private imageService: ImageService,
-    @Inject(PLATFORM_ID) private platformId: Object // Injeta platformId
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
-    // Verifica se está no navegador
     if (isPlatformBrowser(this.platformId)) {
       const canvasEl = this.canvas?.nativeElement;
       if (canvasEl) {
         this.ctx = canvasEl.getContext('2d') as CanvasRenderingContext2D;
-        const imgSrc = this.imageService.getImage();
-        console.log(`Image Source: ${imgSrc}`); // Verifique a URL da imagem
 
-        const img = new Image();
-        img.src = imgSrc;
+        // Escuta as mudanças na imagem do serviço
+        this.imageSubscription = this.imageService.imageSrc$.subscribe((imgSrc) => {
+          if (imgSrc) {
+            this.loadImage(imgSrc);
+          }
+        });
 
-        img.onload = () => {
-          console.log('Imagem carregada com sucesso.'); // Log para verificar se a imagem foi carregada
-          // Limpa o canvas antes de desenhar a nova imagem
-          this.ctx?.clearRect(0, 0, canvasEl.width, canvasEl.height);
-          this.ctx?.drawImage(img, 0, 0, canvasEl.width, canvasEl.height);
-        };
-
-        img.onerror = (error) => {
-          console.error('Erro ao carregar a imagem:', error); // Log para capturar erros
-        };
+        this.addSelectionListener();
       }
-      this.addSelectionListener(); // Adiciona listeners após garantir que está no navegador
     }
+  }
+
+  loadImage(imgSrc: string) {
+    const img = new Image();
+    img.src = imgSrc;
+
+    img.onload = () => {
+      console.log('Imagem carregada com sucesso.');
+      const canvasEl = this.canvas?.nativeElement;
+      if (this.ctx && canvasEl) {
+        this.ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        this.ctx.drawImage(img, 0, 0, canvasEl.width, canvasEl.height);
+      }
+    };
+
+    img.onerror = (error) => {
+      console.error('Erro ao carregar a imagem:', error);
+    };
   }
 
   addSelectionListener() {
@@ -57,5 +68,11 @@ export class ImageSelectionComponent implements OnInit {
       this.objectSizeInImage = Math.abs(endX - startX);
       console.log(`Largura selecionada: ${this.objectSizeInImage} pixels`);
     });
+  }
+
+  ngOnDestroy() {
+    if (this.imageSubscription) {
+      this.imageSubscription.unsubscribe(); // Evita vazamentos de memória
+    }
   }
 }

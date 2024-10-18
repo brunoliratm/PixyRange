@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ImageService {
-  private imageSrc: string = '';
+  private imageSrcSubject = new BehaviorSubject<string | null>(null);
+  imageSrc$ = this.imageSrcSubject.asObservable();
 
   setImage(src: string) {
-    this.imageSrc = src;
+    this.imageSrcSubject.next(src); // Notifica os componentes que a imagem foi alterada
   }
 
-  getImage(): string {
-    return this.imageSrc;
+  getImage(): string | null {
+    return this.imageSrcSubject.value; // Retorna a imagem atual
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ImageService } from '../image.service';
@@ -12,6 +12,7 @@ declare var EXIF: any;
   styleUrls: ['./exif-reader.component.scss']
 })
 export class ExifReaderComponent {
+  @Output() focalLengthChange = new EventEmitter<number>();
   focalLength: number = 0;
 
   constructor(private imageService: ImageService) {}
@@ -31,6 +32,7 @@ export class ExifReaderComponent {
           EXIF.getData(img, () => {
             this.focalLength = EXIF.getTag(img, 'FocalLength');
             console.log(`Distância focal: ${this.focalLength}`);
+            this.focalLengthChange.emit(this.focalLength);
           });
         };
       };

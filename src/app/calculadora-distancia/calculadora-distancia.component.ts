@@ -16,6 +16,10 @@ export class CalculadoraDistanciaComponent {
   focalLength: number = 0;
   distancia: number | null = null;
 
+  onFocalLengthChange(newFocalLength: number) { // Adicione isso
+    this.focalLength = newFocalLength;
+  }
+
   calcularDistancia() {
     if (this.realSize > 0 && this.objectSizeInImage > 0 && this.focalLength > 0) {
       const focalLengthMeters = this.focalLength / 1000;
