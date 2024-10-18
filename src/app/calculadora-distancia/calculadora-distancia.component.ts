@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ExifReaderComponent } from '../exif-reader/exif-reader.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-calculadora-distancia',
   standalone: true,
-  imports: [CommonModule, FormsModule, ExifReaderComponent],
+  imports: [CommonModule, FormsModule,MatFormFieldModule,
+    MatInputModule, ExifReaderComponent],
   templateUrl: './calculadora-distancia.component.html',
   styleUrls: ['./calculadora-distancia.component.scss']
 })

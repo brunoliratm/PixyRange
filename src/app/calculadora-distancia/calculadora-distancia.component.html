@@ -3,23 +3,23 @@
 
   <form (ngSubmit)="calcularDistancia()">
 
-        <app-exif-reader (focalLengthChange)="onFocalLengthChange($event)"></app-exif-reader>
+        <app-exif-reader style="margin-bottom: 1rem;"  (focalLengthChange)="onFocalLengthChange($event)"></app-exif-reader>
 
 
-    <div class="input-field">
-      <label for="realSize">Tamanho real do objeto (em cm)</label>
-      <input type="number" id="realSize" [(ngModel)]="realSize" name="realSize" required />
-    </div>
+        <mat-form-field appearance="fill" class="input-field">
+          <mat-label>Tamanho real do objeto (em cm)</mat-label>
+          <input matInput type="number" [(ngModel)]="realSize" name="realSize" required />
+        </mat-form-field>
 
-    <div class="input-field">
-      <label for="objectSizeInImage">Largura do objeto na imagem (em pixels)</label>
-      <input type="number" id="objectSizeInImage" [(ngModel)]="objectSizeInImage" name="objectSizeInImage" required />
-    </div>
+        <mat-form-field appearance="fill" class="input-field">
+          <mat-label>Largura do objeto na imagem (em pixels)</mat-label>
+          <input matInput type="number" [(ngModel)]="objectSizeInImage" name="objectSizeInImage" required />
+        </mat-form-field>
 
-    <div class="input-field">
-      <label for="focalLength">Distância focal da câmera (em mm)</label>
-      <input type="number" id="focalLength" [(ngModel)]="focalLength" name="focalLength" required />
-    </div>
+        <mat-form-field appearance="fill" class="input-field">
+          <mat-label>Distância focal da câmera (em mm)</mat-label>
+          <input matInput type="number" [(ngModel)]="focalLength" name="focalLength" />
+        </mat-form-field>
 
     <button type="submit" mat-flat-button>Calcular Distância</button>
   </form>

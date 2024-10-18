@@ -68,8 +68,8 @@ ng serve
 
 ## Usage
 
-1. Enter the real size of the object (in meters, centimeters, or another desired unit).
-2. Enter the size of the object in the image (measured in pixels or another unit proportional to the image).
+1. Enter the real size of the object (in centimeters).
+2. Enter the size of the object in the image (measured in pixels).
 3. Enter the focal length of the camera.
 4. The distance result will be displayed immediately based on the provided information.
 

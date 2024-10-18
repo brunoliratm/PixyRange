@@ -3,28 +3,11 @@ body {
   padding: 0;
 }
 
-body.dark-theme {
-  background-color: #121212; // Cor de fundo escura
-  color: #ffffff; // Cor do texto clara
-
-  // Modifique a barra de ferramentas do Angular Material
-  mat-toolbar {
-    background-color: #1e1e1e; // Cor de fundo da barra de ferramentas
-    color: #ffffff; // Cor do texto
-  }
-
-  // Outros componentes do Material
-  mat-card {
-    background-color: #1e1e1e; // Exemplo de cor de fundo para cartões
-    color: #ffffff; // Exemplo de cor do texto para cartões
-  }
-}
-
 :host {
   display: block;
-  font-family: 'Roboto', sans-serif; // Fonte padrão do Material 3
-  --md-sys-color-on-primary: #e3f2fd; // Cor de texto sobre a cor primária
-  --md-sys-color-surface: #e3f2fd; // Cor de fundo do Material 3
+  font-family: 'Roboto', sans-serif;
+  --md-sys-color-on-primary: #e3f2fd;
+  --md-sys-color-surface: #e3f2fd;
 }
 
 
@@ -32,42 +15,41 @@ body.dark-theme {
   display: flex;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   flex-direction: column;
-  background-color: #e3f2fd; // Cor de fundo suave, conforme Material 3
+  background-color: #e3f2fd;
 
   mat-toolbar {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 28px 28px; // Estilo mais suave de bordas arredondadas, conforme Material 3
-    background-color: var(--md-sys-color-primary, #ffffff); // Usando variáveis de cores dinâmicas do Material 3
-    color: var(--md-sys-color-on-primary, white); // Cores adaptáveis ao modo escuro/claro
-    font-size: 24px; // Fonte levemente menor, alinhada com Material 3
-    height: 88px; // Altura mais compacta, comum no Material 3
+    border-radius: 0 0 28px 28px;
+    background-color: var(--md-sys-color-primary, #ffffff);
+    color: var(--md-sys-color-on-primary, white);
+    font-size: 24px;
+    height: 88px;
     display: flex;
     align-items: center;
-    justify-content: space-between; // Espaçamento distribuído entre os elementos
+    justify-content: space-between;
     padding: 0 16px;
   }
 
   mat-icon {
-    font-size: 28px; // Tamanho icônico adaptado ao Material 3
+    font-size: 28px;
   }
 
   img {
-    height: 40px; // Ajuste de altura para manter o balanceamento visual
-    margin-left: 8px; // Espaçamento ao lado do ícone
+    height: 40px;
+    margin-left: 8px;
   }
 
   .example-spacer {
-    flex-grow: 1; // Permite que o ícone de menu fique à direita
+    flex-grow: 1;
   }
 
   button[mat-icon-button] {
-    background-color: var(--md-sys-color-surface, white); // Botão adaptável à paleta Material You
-    color: var(--md-sys-color-on-surface, #3f51b5); // Cor dinâmica para contraste
-    border-radius: 50%; // Botões circulares, padrão Material 3
+    background-color: var(--md-sys-color-surface, white);
+    color: var(--md-sys-color-on-surface, #3f51b5);
+    border-radius: 50%;
     margin-right: 8px;
 
     &:hover {
-      background-color: var(--md-sys-color-secondary-container, #e3f2fd); // Efeito hover sutil
+      background-color: var(--md-sys-color-secondary-container, #e3f2fd);
     }
 
     mat-icon {
@@ -77,46 +59,49 @@ body.dark-theme {
 
   ::ng-deep mat-menu {
     .mat-menu-content {
-      background-color: white !important; // Define o fundo do menu como branco
+      background-color: white !important;
     }
 
     button.mat-menu-item {
-      color: black !important; // Define a cor do texto dos itens do menu
+      color: black !important;
     }
 
     button.mat-menu-item:hover {
-      background-color: #f0f0f0 !important; // Define uma cor de fundo no hover (opcional)
+      background-color: #f0f0f0 !important;
     }
 
     mat-icon {
-      color: black !important; // Define a cor dos ícones como preto para contraste com o fundo branco
+      color: black !important;
     }
   }
 }
 
 #main-container {
-  display: flex; // Torna o container um flex container
+  display: flex;
   height: calc(100vh - 64px);
+  background-color: #e3f2fd;
+  flex-wrap: wrap; 
+  justify-content: space-between;
 }
 
 #leftside-container {
-  display: flex; // Torna o container um flex container
-  align-items: center; // Alinha o conteúdo verticalmente no centro
-  justify-content: center; // Alinha o conteúdo horizontalmente no centro
-  height: 100%; // Garante que o container ocupe toda a altura
-  flex: 0.7; // Ocupa o mesmo espaço que o lado direito
-  background-color: #d7e5f0; // Apenas para visualização
-  padding: 25px; // Espaçamento interno
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  flex: 1;
+  background-color: #e3f2fd;
+  padding: 20px;
 }
 
 #rightside-container {
-  display: flex; // Torna o container um flex container
-  align-items: center; // Alinha o conteúdo verticalmente no centro
-  justify-content: center; // Alinha o conteúdo horizontalmente no centro
-  height: 100%; // Garante que o container ocupe toda a altura
-  flex: 1; // Ocupa o mesmo espaço que o lado esquerdo
-  background-color: lightgreen; // Apenas para visualização
-  padding: 25px; // Espaçamento interno
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  flex: 1;
+  background-color: #e3f2fd;
+  padding: 20px;
 }
 
 
