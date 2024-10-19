@@ -12,6 +12,7 @@ import { ImageSelectionComponent } from './image-selection/image-selection.compo
 import { CalculadoraDistanciaComponent } from './calculadora-distancia/calculadora-distancia.component';
 
 
+
 declare var EXIF: any;
 
 @Component({
@@ -26,5 +27,6 @@ declare var EXIF: any;
 })
 export class AppComponent {
   title = 'Pixy Range';
+  objectSizeInImage: number = 0;
 
 }

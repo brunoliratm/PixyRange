@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { ExifReaderComponent } from '../exif-reader/exif-reader.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ImageSelectionComponent } from '../image-selection/image-selection.component';
 
 @Component({
   selector: 'app-calculadora-distancia',
   standalone: true,
   imports: [CommonModule, FormsModule,MatFormFieldModule,
-    MatInputModule, ExifReaderComponent],
+    MatInputModule, ExifReaderComponent, ImageSelectionComponent ],
   templateUrl: './calculadora-distancia.component.html',
   styleUrls: ['./calculadora-distancia.component.scss']
 })
@@ -19,7 +20,11 @@ export class CalculadoraDistanciaComponent {
   focalLength: number = 0;
   distancia: number | null = null;
 
-  onFocalLengthChange(newFocalLength: number) { // Adicione isso
+  onObjectSizeInImageChange(newSize: number) {
+    this.objectSizeInImage = newSize;
+  }
+
+  onFocalLengthChange(newFocalLength: number) { 
     this.focalLength = newFocalLength;
   }
 

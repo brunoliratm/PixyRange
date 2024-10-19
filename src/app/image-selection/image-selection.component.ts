@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, Output, EventEmitter, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ImageService } from '../image.service';
 import { Subscription } from 'rxjs';
@@ -10,11 +10,19 @@ import { Subscription } from 'rxjs';
   templateUrl: './image-selection.component.html',
   styleUrls: ['./image-selection.component.scss'],
 })
+
+
+
 export class ImageSelectionComponent implements OnInit {
   @ViewChild('myCanvas', { static: true }) canvas: ElementRef<HTMLCanvasElement> | null = null;
+  @Output() objectSizeInImageChange = new EventEmitter<number>();
   ctx: CanvasRenderingContext2D | null = null;
   objectSizeInImage: number = 0;
   imageSubscription: Subscription | null = null;
+
+  // Para suporte ao toque
+  startX: number = 0;
+  endX: number = 0;
 
   constructor(
     private imageService: ImageService,
@@ -27,7 +35,7 @@ export class ImageSelectionComponent implements OnInit {
       if (canvasEl) {
         this.ctx = canvasEl.getContext('2d') as CanvasRenderingContext2D;
 
-        // Escuta as mudanças na imagem do serviço
+        // Observa mudanças de imagem
         this.imageSubscription = this.imageService.imageSrc$.subscribe((imgSrc) => {
           if (imgSrc) {
             this.loadImage(imgSrc);
@@ -44,7 +52,6 @@ export class ImageSelectionComponent implements OnInit {
     img.src = imgSrc;
 
     img.onload = () => {
-      console.log('Imagem carregada com sucesso.');
       const canvasEl = this.canvas?.nativeElement;
       if (this.ctx && canvasEl) {
         this.ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
@@ -57,22 +64,43 @@ export class ImageSelectionComponent implements OnInit {
     };
   }
 
+
   addSelectionListener() {
-    let startX = 0, endX = 0;
-    this.canvas?.nativeElement.addEventListener('mousedown', (event: MouseEvent) => {
-      startX = event.offsetX;
+    const canvasEl = this.canvas?.nativeElement;
+
+    // Eventos de mouse
+    canvasEl?.addEventListener('mousedown', (event: MouseEvent) => {
+      this.startX = event.offsetX;
     });
 
-    this.canvas?.nativeElement.addEventListener('mouseup', (event: MouseEvent) => {
-      endX = event.offsetX;
-      this.objectSizeInImage = Math.abs(endX - startX);
-      console.log(`Largura selecionada: ${this.objectSizeInImage} pixels`);
+    canvasEl?.addEventListener('mouseup', (event: MouseEvent) => {
+      this.endX = event.offsetX;
+      this.objectSizeInImage = Math.abs(this.endX - this.startX);
+      this.objectSizeInImageChange.emit(this.objectSizeInImage);
+
+    });
+
+    // Eventos de toque (para dispositivos móveis)
+    canvasEl?.addEventListener('touchstart', (event: TouchEvent) => {
+      const touch = event.touches[0];
+      const rect = canvasEl.getBoundingClientRect();
+      this.startX = touch.clientX - rect.left;
+    });
+
+    canvasEl?.addEventListener('touchend', (event: TouchEvent) => {
+      const touch = event.changedTouches[0];
+      const rect = canvasEl.getBoundingClientRect();
+      this.endX = touch.clientX - rect.left;
+      this.objectSizeInImage = Math.abs(this.endX - this.startX);
+      this.objectSizeInImageChange.emit(this.objectSizeInImage);
     });
   }
 
+
+
   ngOnDestroy() {
     if (this.imageSubscription) {
-      this.imageSubscription.unsubscribe(); // Evita vazamentos de memória
+      this.imageSubscription.unsubscribe();
     }
   }
 }
