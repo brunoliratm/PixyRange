@@ -4,48 +4,48 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: var(--mat-background, #f0f0f0); // Cor de fundo suave
-  border-radius: 16px; // Borda arredondada
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Leve sombra
-  width: 80%; // Largura mais generosa
-  max-width: 600px; // Limita a largura máxima
-  margin: 0 auto; // Centraliza o container
+  background-color: var(--mat-background, #f0f0f0);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 
   label {
     font-size: 1.1rem;
-    color: var(--mat-primary-text, #333); // Texto da label em cor primária
+    color: var(--mat-primary-text, #333);
     margin-bottom: 10px;
     display: block;
   }
 
   input[type="file"] {
-    padding: 10px;
-    background-color: var(--mat-surface, #fff); // Fundo claro para o input
-    border: 2px solid var(--mat-primary, #6200ee); // Borda usando cor primária
-    border-radius: 12px; // Bordas arredondadas
-    cursor: pointer; // Cursor de mão para o input
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); // Sombra suave
-    transition: box-shadow 0.2s ease-in-out; // Transição suave para o hover
+    padding: 2px;
+    background-color: var(--mat-surface, #fff);
+    border: 2px solid var(--mat-primary, #6200ee);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s ease-in-out;
 
     &:hover {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25); // Sombra maior ao passar o mouse
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
     }
 
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 4px rgba(98, 0, 238, 0.3); // Efeito de foco com sombra
+      box-shadow: 0 0 0 4px rgba(98, 0, 238, 0.3);
     }
   }
 
   p {
     margin-top: 15px;
     font-size: 1rem;
-    color: var(--mat-secondary-text, #6200ee); // Texto da distância focal com cor secundária
-    background-color: var(--mat-surface, #fff); // Fundo claro para destacar
+    color: var(--mat-secondary-text, #6200ee);
+    background-color: var(--mat-surface, #fff);
     padding: 10px 15px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); // Sombra leve no texto
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: fit-content; // Ajusta automaticamente ao conteúdo
+    width: fit-content;
   }
 }
