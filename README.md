@@ -22,7 +22,7 @@
 Pixy Range is a web tool developed to calculate the distance between the camera and an object in an image. The application allows the user to input three essential data points:
 
 - Real size of the object.
-- Size of the object in the image (in pixels or another relative unit).
+- Size of the object in the image (in pixels).
 - Focal length of the camera.
 
 With this information, the application quickly and accurately calculates the distance to the object. This project is aimed at both students and researchers in computer vision, as well as photographers and digital image enthusiasts who need an intuitive tool to estimate distances.
@@ -34,6 +34,12 @@ With this information, the application quickly and accurately calculates the dis
 - Easy data input via input fields.
 - Support for various units (pixels, centimeters, meters).
 - Responsive and optimized for different devices.
+
+:hourglass_flowing_sand: In Progress
+- [ ] Implementation of dark mode
+- [ ] Implementation of language selection
+- [ ] add acessibility tooltips
+- [ ] add responsivity to app
 
 ## Installation
 
