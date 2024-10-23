@@ -28,7 +28,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0 5px;
   }
 
   mat-icon {
@@ -87,7 +87,7 @@ body {
 #main-container {
   margin-top: 10px;
   display: flex;
-  height: calc(100vh - 88px);
+  height: calc(100vh - 68px);
   background-color: #d4e2ed;
   flex-wrap: wrap;
   justify-content: space-between;

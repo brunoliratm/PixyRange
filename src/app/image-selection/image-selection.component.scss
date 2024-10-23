@@ -5,6 +5,7 @@
   padding: 2.5rem;
   min-width: 100%;
   min-height: 40vh;
+  max-height: 80vh;
   background-color: var(--mat-background, #ffffff);
   border-radius: 16px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -27,11 +28,11 @@
   }
 
   p {
-    margin-top: 5px;
+    margin-top: 3px;
     font-size: 1rem;
     color: var(--mat-secondary-text, #6200ee);
     background-color: var(--mat-surface, #fff);
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     text-align: center;
