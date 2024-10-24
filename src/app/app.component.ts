@@ -28,5 +28,28 @@ declare var EXIF: any;
 export class AppComponent {
   title = 'Pixy Range';
   objectSizeInImage: number = 0;
+  isDarkMode: boolean = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    const body = document.body;
+    body.classList.toggle('dark-mode', this.isDarkMode);
+    const toolbar = document.getElementById('toolbar-container');
+    if (toolbar) {
+      toolbar.classList.toggle('dark-mode', this.isDarkMode);
+    }
+    const mainContainer = document.getElementById('main-container');
+    if (mainContainer) {
+      mainContainer.classList.toggle('dark-mode', this.isDarkMode);
+    }
+    const leftContainer = document.getElementById('leftside-container');
+    const rightContainer = document.getElementById('rightside-container');
+    if (leftContainer) {
+      leftContainer.classList.toggle('dark-mode', this.isDarkMode);
+    }
+    if (rightContainer) {
+      rightContainer.classList.toggle('dark-mode', this.isDarkMode);
+    }
+  }
 
 }

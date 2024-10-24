@@ -1,31 +1,31 @@
 <div id="toolbar-container">
   <mat-toolbar>
-      <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=400&size=30&pause=100&color=5f6368&center=true&repeat=false&vCenter=true&lines=Pixy+Range😄" alt="Typing SVG">
+    <span>Pixy Range😄</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Com amor para Maria Iasmin" style="color: black;"[matMenuTriggerFor]="git">
+    <button mat-icon-button style="color: black;" [matMenuTriggerFor]="git">
       <i class="bi bi-github"></i>
     </button>
     <mat-menu #git="matMenu">
       <a href="https://github.com/brunoliratm/PixyRange">
-      <button mat-menu-item >
-        <mat-icon ><i class="bi bi-git"></i></mat-icon>
-        <span>Version 1.0.0</span>
-      </button>
+        <button mat-menu-item>
+          <mat-icon><i class="bi bi-git"></i></mat-icon>
+          <span>Version 1.0.0</span>
+        </button>
       </a>
       <a href="https://github.com/brunoliratm">
-      <button mat-menu-item title="Feito com todo amor para minha querida Maria Iasmin">
-        <mat-icon>person</mat-icon>
-        <span >Dev BrunoMagno</span>
-      </button>
-    </a>
+        <button mat-menu-item title="Feito com todo amor para minha querida Maria Iasmin">
+          <mat-icon>person</mat-icon>
+          <span>Dev BrunoMagno</span>
+        </button>
+      </a>
     </mat-menu>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu" >
+    <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>dark_mode</mat-icon>
+      <button mat-menu-item (click)="toggleDarkMode()">
+        <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
         <span>Dark Mode</span>
       </button>
       <button mat-menu-item>
@@ -33,13 +33,16 @@
         <span>Language</span>
       </button>
     </mat-menu>
-
   </mat-toolbar>
+</div>
+
+<div id="description-container">
+  <p class="description-text">Pixy Range is an Angular web application that calculates the distance of objects in images based on the object's actual size, its size in the image, and the camera's focal length. Ideal for photographers, developers and enthusiasts, it simplifies calculating distances accurately and intuitively. </p>
 </div>
 
 <div id="main-container">
   <div id="leftside-container">
-        <app-calculadora-distancia></app-calculadora-distancia>
+    <app-calculadora-distancia></app-calculadora-distancia>
   </div>
 
   <div id="rightside-container">

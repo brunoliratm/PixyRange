@@ -8,3 +8,21 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #e3f2fd;
 }
+
+.dark-mode {
+  body {
+    background-color: black;
+    color: white
+  }
+
+  #toolbar-container {
+    mat-toolbar {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  #main-container {
+    background-color: black;
+  }
+}

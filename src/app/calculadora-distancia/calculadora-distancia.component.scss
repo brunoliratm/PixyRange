@@ -3,83 +3,43 @@ main.calculadora-distancia-container {
   flex-direction: column;
   align-items: center;
   background-color: white;
-  min-width: 80%;
-  min-height: 50vh;
+  width: 80%;
   max-height: 80%;
   padding: 1.5rem;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
+  }
 }
 
 main h2 {
   font-weight: 400;
   margin-bottom: 2rem;
-  position: relative;
-}
-
-main h2::before {
-  content: '';
-  position: absolute;
-  height: 4px;
-  width: 165px;
-  bottom: 3px;
-  left: 0;
-  border-radius: 8px;
-  background: linear-gradient(45deg, #8e2de2, #f05fe4);
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 25px;
+  width: 100%;
 }
 
 .input-field {
-  position: relative;
-  border-radius: 25px;
-
-}
-mat-form-field {
   width: 100%;
-  border-radius: 25px;
-}
-
-form .input-field:first-child {
-  margin-bottom: 1.0rem;
-  margin-top: 1.0rem;
-}
-
-.input-field input:focus ~ .underline::after {
-  transform: scaleX(2);
-}
-
-.input-field input {
-  font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.input-field input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
 }
 
 form button[type="submit"] {
-  margin-top: 2rem;
-  padding: 0.4rem;
   width: 70%;
+  padding: 0.5rem;
   background: linear-gradient(to left, #5c88f0, #d882be);
-  cursor: pointer;
-  color: white;
-  font-size: 0.9rem;
-  font-weight: 300;
-  font-size: medium;
   border-radius: 22px;
-  transition: all 0.3s ease;
-}
+  font-size: 1rem;
 
-form input[type="submit"]:hover {
-  letter-spacing: 0.5px;
-  background: linear-gradient(to right, #9ca3b4, #e954b7);
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 }
-
