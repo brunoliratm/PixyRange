@@ -1,4 +1,3 @@
-
 @use '@angular/material' as mat;
 @include mat.core();
 
@@ -6,23 +5,101 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #e3f2fd;
+  background-color: #d4e2ed;
+}
+html, body .dark-mode {
+  background-color: black;
+  color: white;
+}
+:root .dark-mode {
+  --md-sys-color-primary: #bb86fc;
+  --md-sys-color-surface: #121212;
+  --md-sys-color-on-surface: #ffffff;
+  background-color: #121212;
+  color: #ffffff;
+
+  .span {
+    color: #ffffff;
+  }
 }
 
-.dark-mode {
-  body {
-    background-color: black;
-    color: white
-  }
+:host {
+  display: block;
+  background-color: #e3f2fd;
+  font-family: 'Roboto', sans-serif;
+  --md-sys-color-on-primary: #e3f2fd;
+  --md-sys-color-surface: #e3f2fd;
+}
 
-  #toolbar-container {
-    mat-toolbar {
-      background-color: black;
-      color: white;
-    }
-  }
+:host .dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
 
-  #main-container {
-    background-color: black;
+:root .dark-mode body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+:root .dark-mode #toolbar-container {
+  background-color: #121212;
+}
+
+:root .dark-mode #toolbar-container mat-toolbar {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+:root .dark-mode #main-container {
+  background-color: #121212;
+}
+
+:root .dark-mode #main-container mat-toolbar {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+:root .dark-mode #main-container mat-toolbar span:first-child {
+  color: #ffffff;
+}
+
+:root .dark-mode #main-container mat-toolbar img {
+  filter: invert(1);
+}
+
+:root .dark-mode #main-container mat-toolbar button[mat-icon-button] {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+:root .dark-mode #main-container mat-toolbar .example-spacer {
+  background-color: #1f1f1f;
+}
+
+:root .dark-mode #main-container mat-toolbar button[mat-icon-button]:hover {
+  background-color: #333333;
+}
+
+:root .dark-mode #description-container {
+  background-color: #333333;
+  color: #ffffff;
+
+  p {
+    color: #ffffff;
   }
+}
+
+:root .dark-mode #leftside-container {
+  background-color: #121212;
+}
+
+:root .dark-mode #rightside-container {
+  background-color: #121212;
+}
+
+:root .dark-mode .calculadora-distancia-container,
+:root .dark-mode .image-selection-container,
+:root .dark-mode .exif-reader-container {
+  background-color: #1f1f1f;
+  color: #ffffff;
 }

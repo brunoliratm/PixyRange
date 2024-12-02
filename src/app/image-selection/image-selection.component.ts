@@ -4,11 +4,10 @@ import { ImageService } from '../image.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-image-selection',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './image-selection.component.html',
-  styleUrls: ['./image-selection.component.scss'],
+    selector: 'app-image-selection',
+    imports: [CommonModule],
+    templateUrl: './image-selection.component.html',
+    styleUrls: ['./image-selection.component.scss']
 })
 
 

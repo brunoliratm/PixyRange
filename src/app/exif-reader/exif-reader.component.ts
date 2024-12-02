@@ -5,11 +5,10 @@ import { ImageService } from '../image.service';
 declare var EXIF: any;
 
 @Component({
-  selector: 'app-exif-reader',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './exif-reader.component.html',
-  styleUrls: ['./exif-reader.component.scss']
+    selector: 'app-exif-reader',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './exif-reader.component.html',
+    styleUrls: ['./exif-reader.component.scss']
 })
 export class ExifReaderComponent {
   @Output() focalLengthChange = new EventEmitter<number>();

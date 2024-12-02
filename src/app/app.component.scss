@@ -1,54 +1,22 @@
-:root{
-  // Cores do tema claro
-  --background-color-light: #e3f2fd;
-  --text-color-light: #000;
-  --toolbar-color-light: #d4e2ed;
-  --button-color-light: #ffffff;
-
-  // Cores do tema escuro
-  --background-color-dark: #121212;
-  --text-color-dark: #e3f2fd;
-  --toolbar-color-dark: #1e1e1e;
-  --button-color-dark: #3f51b5;
-}
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #e3f2fd;
+  background-color: #d4e2ed;
   font-family: 'Roboto', sans-serif;
-}
-
-.dark-mode {
-  body {
-    background-color: black;
-    color: white
-  }
-
-  #toolbar-container {
-    mat-toolbar {
-      background-color: black;
-      color: white;
-    }
-  }
-
-  #main-container {
-    background-color: black;
-  }
 }
 
 :host {
   display: block;
-  background-color: #e3f2fd;
+  background-color: #d4e2ed;
   font-family: 'Roboto', sans-serif;
-  --md-sys-color-on-primary: #e3f2fd;
-  --md-sys-color-surface: #e3f2fd;
+  --md-sys-color-on-primary: #d4e2ed;
+  --md-sys-color-surface: #d4e2ed;
 }
 
 #toolbar-container {
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   background-color: #d4e2ed;
 
   mat-toolbar {
@@ -65,9 +33,9 @@ body {
   }
 
   span:first-child {
-    font-size: 28px; // tamanho do título
-    font-weight: 600; // destaque no peso da fonte
-    color: #5a5b5e; // cor primária
+    font-size: 28px;
+    font-weight: 600; 
+    color: #5a5b5e; 
     display: flex;
     align-items: center;
   }
@@ -120,7 +88,7 @@ body {
   font-size: 16px;
   color: #3f3f3f;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Adiciona espaçamento em relação à toolbar */
+  margin-top: 20px; 
   border-radius: 8px;
   max-width: 80%;
   margin: 20px auto;
@@ -137,7 +105,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: #e3f2fd;
+  background-color: #d4e2ed;
   margin-top: 5px;
 
   @media (max-width: 768px) {
@@ -152,7 +120,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  background-color: #e3f2fd;
+  background-color: #d4e2ed;
   margin-top: 2px;
   margin-right: 5%;
   height: 90%;

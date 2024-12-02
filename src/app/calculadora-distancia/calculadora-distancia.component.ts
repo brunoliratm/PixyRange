@@ -7,12 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { ImageSelectionComponent } from '../image-selection/image-selection.component';
 
 @Component({
-  selector: 'app-calculadora-distancia',
-  standalone: true,
-  imports: [CommonModule, FormsModule,MatFormFieldModule,
-    MatInputModule, ExifReaderComponent, ImageSelectionComponent ],
-  templateUrl: './calculadora-distancia.component.html',
-  styleUrls: ['./calculadora-distancia.component.scss']
+    selector: 'app-calculadora-distancia',
+    imports: [CommonModule, FormsModule, MatFormFieldModule,
+    MatInputModule, ExifReaderComponent],
+    templateUrl: './calculadora-distancia.component.html',
+    styleUrls: ['./calculadora-distancia.component.scss']
 })
 export class CalculadoraDistanciaComponent {
   realSize: number = 0;
