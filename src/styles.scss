@@ -44,10 +44,6 @@ html, body .dark-mode {
 :root .dark-mode #toolbar-container {
   background-color: #121212;
 
-  button mat-icon-button {
-    color: #1f1f1f;
-  }
-  
 }
 
 :root .dark-mode #toolbar-container mat-toolbar {
@@ -73,8 +69,7 @@ html, body .dark-mode {
 }
 
 :root .dark-mode #main-container mat-toolbar button[mat-icon-button] {
-  background-color: #1f1f1f;
-  color: #ffffff;
+  color: #1f1f1f;
 }
 
 :root .dark-mode #main-container mat-toolbar .example-spacer {
@@ -109,6 +104,7 @@ html, body .dark-mode {
   color: #ffffff;
 }
 
-:root .dark-mode mat-icon.more_vert {
-  color: #000000 !important;
+:root .dark-mode mat-icon.custom-color-button {
+  color: black;
 }
+
