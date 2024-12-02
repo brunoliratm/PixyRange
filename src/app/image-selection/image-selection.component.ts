@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, Output, EventEmitter, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, Output, EventEmitter, Inject, PLATFORM_ID, OnInit, Input } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ImageService } from '../image.service';
 import { Subscription } from 'rxjs';
@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs';
 export class ImageSelectionComponent implements OnInit {
   @ViewChild('myCanvas', { static: true }) canvas: ElementRef<HTMLCanvasElement> | null = null;
   @Output() objectSizeInImageChange = new EventEmitter<number>();
+  @Input() language: string = 'EN';
   ctx: CanvasRenderingContext2D | null = null;
   objectSizeInImage: number = 0;
   imageSubscription: Subscription | null = null;
@@ -42,6 +43,23 @@ export class ImageSelectionComponent implements OnInit {
         });
 
         this.addSelectionListener();
+      }
+    }
+  }
+
+  ngOnChanges() {
+    this.updateLanguage();
+  }
+
+  updateLanguage() {
+    if (isPlatformBrowser(this.platformId)) {
+      const imageSelectionDescription = document.querySelector('.image-selection-description');
+      if (imageSelectionDescription) {
+        if (this.language === 'EN') {
+          imageSelectionDescription.textContent = 'Select the width of the object in the image.';
+        } else {
+          imageSelectionDescription.textContent = 'Selecione a largura do objeto na imagem.';
+        }
       }
     }
   }
@@ -95,7 +113,17 @@ export class ImageSelectionComponent implements OnInit {
     });
   }
 
-
+  toggleLanguage() {
+    this.language = this.language === 'EN' ? 'PT' : 'EN';
+    const imageSelectionDescription = document.querySelector('.image-selection-description');
+    if (imageSelectionDescription) {
+      if (this.language === 'EN') {
+        imageSelectionDescription.textContent = 'Select the width of the object in the image.';
+      } else {
+        imageSelectionDescription.textContent = 'Selecione a largura do objeto na imagem.';
+      }
+    }
+  }
 
   ngOnDestroy() {
     if (this.imageSubscription) {

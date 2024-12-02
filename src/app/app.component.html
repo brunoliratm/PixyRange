@@ -28,9 +28,9 @@
         <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
         <span>Dark Mode</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="toggleLanguage()">
         <mat-icon>translate</mat-icon>
-        <span>Language</span>
+        <span>Language: {{ language }}</span>
       </button>
     </mat-menu>
   </mat-toolbar>
@@ -39,11 +39,11 @@
   </div>
   <div id="main-container">
     <div id="leftside-container">
-      <app-calculadora-distancia></app-calculadora-distancia>
+      <app-calculadora-distancia [language]="language"></app-calculadora-distancia>
     </div>
   
     <div id="rightside-container">
-      <app-image-selection></app-image-selection>
+      <app-image-selection [language]="language"></app-image-selection>
     </div>
   </div>
 </div>
