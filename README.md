@@ -36,9 +36,8 @@ With this information, the application quickly and accurately calculates the dis
 - Responsive and optimized for different devices.
 
 :hourglass_flowing_sand: In Progress
-- [ ] Implementation of dark mode
-- [ ] Implementation of language selection
-- [ ] add acessibility tooltips
+- [x] Implementation of dark mode
+- [x] Implementation of language selection
 - [ ] add responsivity to app
 
 ## Installation

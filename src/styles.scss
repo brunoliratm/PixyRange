@@ -43,6 +43,11 @@ html, body .dark-mode {
 
 :root .dark-mode #toolbar-container {
   background-color: #121212;
+
+  button mat-icon-button {
+    color: #1f1f1f;
+  }
+  
 }
 
 :root .dark-mode #toolbar-container mat-toolbar {
@@ -102,4 +107,8 @@ html, body .dark-mode {
 :root .dark-mode .exif-reader-container {
   background-color: #1f1f1f;
   color: #ffffff;
+}
+
+:root .dark-mode mat-icon.more_vert {
+  color: #000000 !important;
 }
