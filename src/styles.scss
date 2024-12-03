@@ -1,16 +1,21 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #d4e2ed;
 }
+
 html, body .dark-mode {
   background-color: black;
   color: white;
 }
+
 :root .dark-mode {
   --md-sys-color-primary: #bb86fc;
   --md-sys-color-surface: #121212;
@@ -36,31 +41,27 @@ html, body .dark-mode {
   color: #ffffff;
 }
 
-:root .dark-mode body {
+:root .dark-mode body,
+:root .dark-mode #toolbar-container,
+:root .dark-mode #main-container,
+:root .dark-mode #leftside-container,
+:root .dark-mode #rightside-container {
   background-color: #121212;
   color: #ffffff;
 }
 
-:root .dark-mode #toolbar-container {
-  background-color: #121212;
-
+:root .dark-mode #toolbar-container mat-toolbar span{
+  color: #ffffff !important;
 }
 
+:root .dark-mode #main-container mat-toolbar,
 :root .dark-mode #toolbar-container mat-toolbar {
   background-color: #121212;
   color: #ffffff;
 }
 
-:root .dark-mode #main-container {
-  background-color: #121212;
-}
-
-:root .dark-mode #main-container mat-toolbar {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-:root .dark-mode #main-container mat-toolbar span:first-child {
+:root .dark-mode #main-container mat-toolbar span:first-child,
+:root .dark-mode #description-container p {
   color: #ffffff;
 }
 
@@ -80,31 +81,22 @@ html, body .dark-mode {
   background-color: #333333;
 }
 
-:root .dark-mode #description-container {
-  background-color: #333333;
+:root .dark-mode mat-icon.custom-color-button {
+  color: black;
+}
+
+:root .dark-mode #description-container{
+  background-color: #272525;
   color: #ffffff;
-
-  p {
-    color: #ffffff;
-  }
-}
-
-:root .dark-mode #leftside-container {
-  background-color: #121212;
-}
-
-:root .dark-mode #rightside-container {
-  background-color: #121212;
 }
 
 :root .dark-mode .calculadora-distancia-container,
 :root .dark-mode .image-selection-container,
 :root .dark-mode .exif-reader-container {
-  background-color: #1f1f1f;
+  background-color: #272525;
   color: #ffffff;
 }
 
-:root .dark-mode mat-icon.custom-color-button {
-  color: black;
+:root .dark-mode .exif-reader-container label {
+  color: #ffffff !important;
 }
-

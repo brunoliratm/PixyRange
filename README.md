@@ -1,8 +1,13 @@
- <div align="center" text-align="center">
+<div align="center" text-align="center">
     <img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=gradient&text=Pixy%20Range&reversal=false">
 </div>
 
 # Pixy Range
+
+![GitHub repo size](https://img.shields.io/github/repo-size/brunoliratm/PixyRange)
+![GitHub contributors](https://img.shields.io/github/contributors/brunoliratm/PixyRange)
+![GitHub issues](https://img.shields.io/github/issues/brunoliratm/PixyRange)
+![GitHub license](https://img.shields.io/github/license/brunoliratm/PixyRange)
 
 ## 📃 Table of Contents
 
@@ -15,7 +20,6 @@
   - [Calculation Example](#calculation-example)
 - [Contributing](#contributing)
 - [License](#license)
-
 
 ## Overview
 
@@ -34,11 +38,6 @@ With this information, the application quickly and accurately calculates the dis
 - Easy data input via input fields.
 - Support for various units (pixels, centimeters, meters).
 - Responsive and optimized for different devices.
-
-:hourglass_flowing_sand: In Progress
-- [x] Implementation of dark mode
-- [x] Implementation of language selection
-- [ ] add responsivity to app
 
 ## Installation
 
@@ -59,9 +58,9 @@ To run this project locally, you will need:
   ```
 
 2. Install the dependencies:
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 
 3. Run the development server:
 ```bash
