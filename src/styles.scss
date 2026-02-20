@@ -1,102 +1,48 @@
-@use '@angular/material' as mat;
-@include mat.core();
-
-html, body {
-  height: 100%;
+:root {
+  --bg-app: #f5f5f7;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-card-hover: rgba(255, 255, 255, 0.9);
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --text-accent: #0066cc;
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  --glass-blur: blur(20px);
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-capsule: 9999px;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #d4e2ed;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-html, body .dark-mode {
-  background-color: black;
-  color: white;
-}
+input.clean-input {
+  appearance: none;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  width: 100%;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
 
-:root .dark-mode {
-  --md-sys-color-primary: #bb86fc;
-  --md-sys-color-surface: #121212;
-  --md-sys-color-on-surface: #ffffff;
-  background-color: #121212;
-  color: #ffffff;
-
-  .span {
-    color: #ffffff;
+  &:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
   }
 }
 
-:host {
-  display: block;
-  background-color: #e3f2fd;
-  font-family: 'Roboto', sans-serif;
-  --md-sys-color-on-primary: #e3f2fd;
-  --md-sys-color-surface: #e3f2fd;
-}
-
-:host .dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-:root .dark-mode body,
-:root .dark-mode #toolbar-container,
-:root .dark-mode #main-container,
-:root .dark-mode #leftside-container,
-:root .dark-mode #rightside-container {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-:root .dark-mode #toolbar-container mat-toolbar span{
-  color: #ffffff !important;
-}
-
-:root .dark-mode #main-container mat-toolbar,
-:root .dark-mode #toolbar-container mat-toolbar {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-:root .dark-mode #main-container mat-toolbar span:first-child,
-:root .dark-mode #description-container p {
-  color: #ffffff;
-}
-
-:root .dark-mode #main-container mat-toolbar img {
-  filter: invert(1);
-}
-
-:root .dark-mode #main-container mat-toolbar button[mat-icon-button] {
-  color: #1f1f1f;
-}
-
-:root .dark-mode #main-container mat-toolbar .example-spacer {
-  background-color: #1f1f1f;
-}
-
-:root .dark-mode #main-container mat-toolbar button[mat-icon-button]:hover {
-  background-color: #333333;
-}
-
-:root .dark-mode mat-icon.custom-color-button {
-  color: black;
-}
-
-:root .dark-mode #description-container{
-  background-color: #272525;
-  color: #ffffff;
-}
-
-:root .dark-mode .calculadora-distancia-container,
-:root .dark-mode .image-selection-container,
-:root .dark-mode .exif-reader-container {
-  background-color: #272525;
-  color: #ffffff;
-}
-
-:root .dark-mode .exif-reader-container label {
-  color: #ffffff !important;
+html,
+body {
+  height: 100%;
 }

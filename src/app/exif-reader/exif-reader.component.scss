@@ -1,52 +1,51 @@
 .exif-reader-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: var(--mat-background, #f0f0f0);
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-
-  label {
-    font-size: 1.1rem;
-    color: var(--mat-primary-text, #333);
-    margin-bottom: 10px;
-    display: block;
-  }
+  align-items: start;
+  margin-bottom: 0.5rem;
 
   input[type="file"] {
-    padding: 2px;
-    background-color: var(--mat-surface, #fff);
-    border: 2px solid var(--mat-primary, #6200ee);
-    border-radius: 12px;
+    display: none;
+  }
+
+  .upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--text-primary);
+    color: var(--bg-app);
+    border-radius: var(--radius-capsule);
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    transition: box-shadow 0.2s ease-in-out;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
     &:hover {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(98, 0, 238, 0.3);
+    &:active {
+      transform: scale(0.98);
+    }
+
+    .icon {
+      font-size: 1.05rem;
+      line-height: 1;
     }
   }
 
   p {
-    margin-top: 15px;
-    font-size: 1rem;
-    color: var(--mat-secondary-text, #6200ee);
-    background-color: var(--mat-surface, #fff);
-    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-accent);
+    background-color: transparent;
+    border: 1px solid var(--text-accent);
+    padding: 6px 12px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: fit-content;
+    display: inline-block;
   }
 }

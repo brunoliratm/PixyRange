@@ -1,53 +1,94 @@
-<div id="toolbar-container">
-  <mat-toolbar>
-    <span>Pixy Range😄</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button style="color: black;" [matMenuTriggerFor]="git">
-      <i class="bi bi-github"></i>
-    </button>
-    <mat-menu #git="matMenu">
-      <a href="https://github.com/brunoliratm/PixyRange">
-        <button mat-menu-item>
-          <mat-icon><i class="bi bi-git"></i></mat-icon>
-          <span>Version 2.1.0</span>
-        </button>
-      </a>
-      <a href="https://github.com/brunoliratm">
-        <button mat-menu-item title="Feito com todo amor para minha querida Maria Iasmin">
-          <mat-icon>person</mat-icon>
-          <span>Dev BrunoMagno</span>
-        </button>
-      </a>
-    </mat-menu>
+<div class="app-layout">
+  <main class="main-content">
+    <section class="mac-dashboard">
+      <div class="input-panel">
+        <header>
+          <h2>PIXY RANGE</h2>
+          <p class="subtitle">Enter parameters to compute distance.</p>
+        </header>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon class="custom-color-button">more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="toggleDarkMode()">
-        <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
-        <span>Dark Mode</span>
-      </button>
-      <button mat-menu-item (click)="toggleLanguage()">
-        <mat-icon>translate</mat-icon>
-        <span>Language: {{ language }}</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar>
-  <div id="description-container">
-    <p class="description-text">Pixy Range is an Angular web application that calculates the distance of objects in images based on the object's actual size, its size in the image, and the camera's focal length. Ideal for photographers, developers and enthusiasts, it simplifies calculating distances accurately and intuitively. </p>
-  </div>
-  <div id="main-container">
-    <div id="leftside-container">
-      <app-calculadora-distancia [language]="language"></app-calculadora-distancia>
-    </div>
-  
-    <div id="rightside-container">
-      <app-image-selection [language]="language"></app-image-selection>
-    </div>
-  </div>
+        <div class="form-group">
+          <app-exif-reader
+            (focalLengthChange)="onFocalLengthChange($event)"
+          ></app-exif-reader>
+        </div>
+
+        <div class="form-group">
+          <label>Real Object Size <span class="unit">(cm)</span></label>
+          <input
+            class="clean-input"
+            type="number"
+            [ngModel]="realSize()"
+            (ngModelChange)="realSize.set($event)"
+            placeholder="e.g., 170"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Object Width on Sensor <span class="unit">(px)</span></label>
+          <input
+            class="clean-input"
+            type="number"
+            [ngModel]="objectSizeInImage()"
+            (ngModelChange)="objectSizeInImage.set($event)"
+            placeholder="e.g., 400"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Focal Length <span class="unit">(mm)</span></label>
+          <input
+            class="clean-input"
+            type="number"
+            [ngModel]="focalLength()"
+            (ngModelChange)="focalLength.set($event)"
+            placeholder="e.g., 50"
+          />
+        </div>
+      </div>
+
+      <div class="result-panel" [class.active]="distancia() !== null">
+        <div class="formula-card">
+          <span class="formula-label">Formula Logic</span>
+          <div class="math-equation">
+            <span class="var">D</span> =
+            <span class="fraction">
+              <span class="numerator">
+                <span class="token r">{{ realSize() || "R" }}</span> ×
+                <span class="token f">{{ focalLength() || "F" }}</span>
+              </span>
+              <span class="denominator">
+                <span class="token i">{{ objectSizeInImage() || "I" }}</span>
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="image-selection-container">
+          <h4 class="image-selection-description">
+            Select the width of the object in the image.
+          </h4>
+          <canvas
+            id="myCanvas"
+            #myCanvas
+            (mousedown)="onCanvasMouseDown($event)"
+            (mouseup)="onCanvasMouseUp($event)"
+            (touchstart)="onCanvasTouchStart($event)"
+            (touchend)="onCanvasTouchEnd($event)"
+          ></canvas>
+        </div>
+
+        <div class="final-result">
+          <span class="label">Calculated Distance</span>
+          <h1 class="value">
+            @if (distancia(); as dist) {
+              {{ dist | number: "1.2-2" }} <span class="unit">m</span>
+            } @else {
+              ---
+            }
+          </h1>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
-
-
-
-

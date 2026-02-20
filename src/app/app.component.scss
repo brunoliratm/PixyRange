@@ -1,133 +1,202 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #d4e2ed;
-  font-family: 'Roboto', sans-serif;
+.app-layout {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
 }
 
-:host {
-  display: block;
-  background-color: #d4e2ed;
-  font-family: 'Roboto', sans-serif;
-  --md-sys-color-on-primary: #d4e2ed;
-  --md-sys-color-surface: #d4e2ed;
+.main-content {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+
+  .mac-dashboard {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .input-panel {
+    padding: 3rem;
+
+    header {
+      margin-bottom: 2rem;
+      h2 {
+        font-size: 4rem;
+        font-weight: 900;
+        margin: 0;
+        letter-spacing: -0.03em;
+        color: var(--text-primary);
+      }
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+
+      .unit {
+        opacity: 0.5;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .result-panel {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-left: 1px solid var(--border-subtle);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.active {
+      .value {
+        color: var(--text-accent);
+      }
+    }
+  }
+
+  .formula-card {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+
+    .formula-label {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: block;
+    }
+  }
+
+  .math-equation {
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fraction {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+
+      .numerator {
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 2px;
+      }
+      .denominator {
+        padding-top: 2px;
+      }
+    }
+
+    .token {
+      font-family: -apple-system, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      &.r {
+        color: #ff3b30;
+      }
+      &.f {
+        color: #34c759;
+      }
+      &.i {
+        color: #007aff;
+      }
+    }
+  }
+
+  .final-result {
+    text-align: right;
+    margin-top: 2rem;
+
+    .label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .value {
+      font-size: 4rem;
+      font-weight: 200;
+      margin: 0;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+
+      .unit {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--text-secondary);
+      }
+    }
+  }
 }
 
-#toolbar-container {
+.image-selection-container {
   display: flex;
   flex-direction: column;
-  background-color: #d4e2ed;
-  width: 100%;
-
-  mat-toolbar {
-    border-radius: 0 0 28px 28px;
-    background-color: var(--md-sys-color-primary, #ffffff);
-    color: var(--md-sys-color-on-primary, white);
-    font-size: 24px;
-    height: 88px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-  }
-
-  span:first-child {
-    font-size: 28px;
-    font-weight: 600;
-    color: #5a5b5e;
-    display: flex;
-    align-items: center;
-  }
-
-  img {
-    height: 50px;
-    max-width: 250px;
-    margin-right: 5px;
-    flex-shrink: 0;
-  }
-
-  .example-spacer {
-    flex-grow: 1;
-  }
-
-  button[mat-icon-button] {
-    background-color: var(--md-sys-color-surface, white);
-    color: var(--md-sys-color-on-surface, #3f51b5);
-    border-radius: 50%;
-    margin-right: 10px;
-    flex-shrink: 0;
-
-    &:hover {
-      background-color: var(--md-sys-color-secondary-container, #d4e2ed);
-    }
-  }
-
-  @media (max-width: 768px) {
-    mat-toolbar {
-      height: 72px;
-      font-size: 20px;
-    }
-
-    img {
-      height: 30px;
-      max-width: 120px;
-      margin-right: 5px;
-    }
-
-    button[mat-icon-button] {
-      margin-right: 4px;
-    }
-  }
-}
-
-#description-container {
-  background-color: #ffffff;
-  padding: 15px;
-  text-align: center;
-  font-size: 16px;
-  color: #3f3f3f;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  border-radius: 8px;
-  max-width: 80%;
-  margin: 20px auto;
-  margin-top: 2%;
-}
-
-.description-text {
-  margin: 0;
-  font-weight: 500;
-  color: #3f3f3f;
-}
-
-#main-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #d4e2ed;
-  margin-top: 5px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-}
-
-#leftside-container,
-#rightside-container {
-  flex: 1;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 30px;
-  background-color: #d4e2ed;
-  margin-top: 2px;
-  margin-right: 5%;
-  height: 90%;
+  gap: 0.75rem;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1.2rem;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
 
   @media (max-width: 768px) {
-    flex: none;
+    padding: 1rem;
+  }
+
+  .image-selection-description {
+    margin: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  canvas {
+    display: block;
+    max-width: 100%;
     width: 100%;
-    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: #fff;
   }
 }

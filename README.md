@@ -1,98 +1,109 @@
-<div align="center" text-align="center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=gradient&text=Pixy%20Range&reversal=false">
-</div>
-
 # Pixy Range
 
-![GitHub repo size](https://img.shields.io/github/repo-size/brunoliratm/PixyRange)
-![GitHub contributors](https://img.shields.io/github/contributors/brunoliratm/PixyRange)
-![GitHub issues](https://img.shields.io/github/issues/brunoliratm/PixyRange)
-![GitHub license](https://img.shields.io/github/license/brunoliratm/PixyRange)
+![License](https://img.shields.io/github/license/brunoliratm/PixyRange)
+![Repo Size](https://img.shields.io/github/repo-size/brunoliratm/PixyRange)
+![Issues](https://img.shields.io/github/issues/brunoliratm/PixyRange)
+![Angular](https://img.shields.io/badge/Angular-19-DD0031?logo=angular&logoColor=white)
+![Node](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)
 
-## 📃 Table of Contents
+A web application to estimate the distance between a camera and an object in an image using:
 
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Step by Step](#step-by-step)
-- [Usage](#usage)
-  - [Calculation Example](#calculation-example)
-- [Contributing](#contributing)
-- [License](#license)
+- real object size (cm),
+- object width in the image (px),
+- camera focal length (mm).
 
 ## Overview
 
-Pixy Range is a web tool developed to calculate the distance between the camera and an object in an image. The application allows the user to input three essential data points:
+Pixy Range is built with Angular (standalone components) and allows you to:
 
-- Real size of the object.
-- Size of the object in the image (in pixels).
-- Focal length of the camera.
+- select a local image,
+- read EXIF data to auto-fill focal length (when available),
+- measure object width directly on the canvas,
+- calculate the estimated distance in meters in real time.
 
-With this information, the application quickly and accurately calculates the distance to the object. This project is aimed at both students and researchers in computer vision, as well as photographers and digital image enthusiasts who need an intuitive tool to estimate distances.
+## How the calculation works
 
-## Features
+The app uses the following model:
 
-- User-friendly and intuitive interface developed with Angular.
-- Accurate calculation of object distances in an image based on proportion formulas.
-- Easy data input via input fields.
-- Support for various units (pixels, centimeters, meters).
-- Responsive and optimized for different devices.
+$$
+D_{mm} = \frac{(R_{cm} \cdot 10) \cdot F_{mm}}{I_{px} \cdot \left(\frac{SensorWidth_{mm}}{ImageWidth_{px}}\right)}
+$$
+
+Where:
+
+- $R_{cm}$: real object size in centimeters,
+- $F_{mm}$: focal length in millimeters,
+- $I_{px}$: measured object width in image pixels,
+- sensor width is currently fixed at `6.4mm`.
+
+> Note: `6.4mm` is a general approximation and may vary by device/camera.
+
+Equivalent form used internally:
+
+$$
+D = \frac{(R_{cm} \cdot 10) \cdot F_{mm}}{I_{px} \cdot \left(\frac{SensorWidth_{mm}}{ImageWidth_{px}}\right)}
+$$
+
+## Technologies
+
+- Angular 19
+- TypeScript
+- RxJS
+- exif-js
+- SCSS
+
+## Requirements
+
+- Node.js 18+ (recommended for Angular 19)
+- npm
 
 ## Installation
 
-### Prerequisites
-
-To run this project locally, you will need:
-
-- Node.js (version 12.x or higher)
-- npm (Node.js package manager)
-- Angular CLI (latest version)
-
-### Step by Step
-
-1. Clone the repository:
-  ```bash
-  git clone https://github.com/brunoliratm/PixyRange.git
-  cd PixyRange
-  ```
-
-2. Install the dependencies:
 ```bash
+git clone https://github.com/brunoliratm/PixyRange.git
+cd PixyRange
 npm install
 ```
 
-3. Run the development server:
+## Run locally
+
 ```bash
-ng serve
+npm start
 ```
 
-4. Open your browser and go to: `http://localhost:4200/`
+Open `http://localhost:4200`.
 
+## Available scripts
+
+- `npm start` — development server
+- `npm run build` — production build
+- `npm run watch` — development watch build
+- `npm run serve:ssr:pixyrange` — serve SSR build
 
 ## Usage
 
-1. Enter the real size of the object (in centimeters).
-2. Enter the size of the object in the image (measured in pixels).
-3. Enter the focal length of the camera.
-4. The distance result will be displayed immediately based on the provided information.
+1. Click **Select Image (EXIF)** and choose an image.
+2. If EXIF data exists, focal length is auto-filled.
+3. Enter the real object size (cm).
+4. On the canvas, select the object's horizontal width.
+5. Check the calculated distance in meters in the result panel.
 
-### Calculation Example
+## Current limitations
 
-If the real size of the object is 2 meters, the size of the object in the image is 100 pixels, and the focal length of the camera is 50mm, Pixy Range will automatically calculate the approximate distance between the camera and the object using the focal length proportion formula.
+- Uses a fixed sensor width (`6.4mm`).
+- Accuracy depends on pixel selection quality.
+- EXIF data may be missing in images edited/compressed by some apps.
 
 ## Contributing
 
-Contributions are welcome! Follow the steps below to collaborate on the project:
+Contributions are welcome.
 
-1. Fork the repository.
-2. Create a branch for your feature or fix: `git checkout -b my-feature`
-3. Commit your changes: `git commit -m 'Add new feature'`
+1. Fork the repository
+2. Create a branch: `git checkout -b my-feature`
+3. Commit your changes: `git commit -m "feat: describe your change"`
 4. Push your branch: `git push origin my-feature`
-5. Open a Pull Request.
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
-
-<img src="https://capsule-render.vercel.app/api?type=waving&height=200&color=gradient&reversal=false&section=footer">
+Distributed under the MIT License. See [LICENSE](LICENSE).

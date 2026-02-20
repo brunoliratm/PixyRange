@@ -1,4 +1,12 @@
 <div class="exif-reader-container">
-  <label for="objectSizeInImage">Selecione uma imagem</label>
-  <input type="file" id="uploadImg" (change)="onFileSelected($event)" accept="image/*" />
+  <label for="uploadImg" class="upload-btn">
+    <span class="material-icons icon" aria-hidden="true">photo_camera</span>
+    Select Image (EXIF)
+  </label>
+  <input
+    type="file"
+    id="uploadImg"
+    (change)="onFileSelected($event)"
+    accept="image/*"
+  />
 </div>

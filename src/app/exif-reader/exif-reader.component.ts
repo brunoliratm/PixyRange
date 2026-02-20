@@ -1,14 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ImageService } from '../image.service';
 declare var EXIF: any;
 
 @Component({
-    selector: 'app-exif-reader',
-    imports: [CommonModule, FormsModule],
-    templateUrl: './exif-reader.component.html',
-    styleUrls: ['./exif-reader.component.scss']
+  selector: 'app-exif-reader',
+  imports: [],
+  templateUrl: './exif-reader.component.html',
+  styleUrls: ['./exif-reader.component.scss'],
 })
 export class ExifReaderComponent {
   @Output() focalLengthChange = new EventEmitter<number>();
@@ -16,26 +14,25 @@ export class ExifReaderComponent {
 
   constructor(private imageService: ImageService) {}
 
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const imgSrc = reader.result as string;
-        this.imageService.setImage(imgSrc); // Envia a imagem selecionada ao serviço
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
 
-        const img = new Image();
-        img.src = imgSrc;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const imgSrc = reader.result as string;
+      this.imageService.setImage(imgSrc);
+      const img = new Image();
+      img.src = imgSrc;
 
-        img.onload = () => {
-          EXIF.getData(img, () => {
-            this.focalLength = EXIF.getTag(img, 'FocalLength');
-            console.log(`Distância focal: ${this.focalLength}`);
-            this.focalLengthChange.emit(this.focalLength);
-          });
-        };
+      img.onload = () => {
+        EXIF.getData(img, () => {
+          this.focalLength = EXIF.getTag(img, 'FocalLength');
+          this.focalLengthChange.emit(this.focalLength);
+        });
       };
-      reader.readAsDataURL(file);
-    }
+    };
+    reader.readAsDataURL(file);
   }
 }
