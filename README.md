@@ -38,12 +38,6 @@ Where:
 
 > Note: `6.4mm` is a general approximation and may vary by device/camera.
 
-Equivalent form used internally:
-
-$$
-D = \frac{(R_{cm} \cdot 10) \cdot F_{mm}}{I_{px} \cdot \left(\frac{SensorWidth_{mm}}{ImageWidth_{px}}\right)}
-$$
-
 ## Technologies
 
 - Angular 19

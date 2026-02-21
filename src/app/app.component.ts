@@ -142,8 +142,6 @@ export class AppComponent {
   }
 
   ngOnDestroy() {
-    if (this.imageSubscription) {
-      this.imageSubscription.unsubscribe();
-    }
+    this.imageSubscription?.unsubscribe();
   }
 }

@@ -14,18 +14,18 @@
     justify-content: center;
     gap: 8px;
     padding: 10px 20px;
-    background: var(--text-primary);
-    color: var(--bg-app);
+    background: var(--text-accent);
+    color: #ffffff;
     border-radius: var(--radius-capsule);
     cursor: pointer;
     font-weight: 500;
     font-size: 0.9rem;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.35);
 
     &:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.45);
     }
 
     &:active {
@@ -38,14 +38,4 @@
     }
   }
 
-  p {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: var(--text-accent);
-    background-color: transparent;
-    border: 1px solid var(--text-accent);
-    padding: 6px 12px;
-    border-radius: 8px;
-    display: inline-block;
-  }
 }

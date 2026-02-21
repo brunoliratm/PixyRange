@@ -1,13 +1,11 @@
 :root {
-  --bg-app: #f5f5f7;
-  --bg-card: rgba(255, 255, 255, 0.75);
-  --bg-card-hover: rgba(255, 255, 255, 0.9);
-  --text-primary: #1d1d1f;
-  --text-secondary: #86868b;
-  --text-accent: #0066cc;
-  --border-subtle: rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  --bg-app: #0b0b0f;
+  --bg-card: rgba(28, 28, 30, 0.36);
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --text-accent: #0a84ff;
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --shadow-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.55);
   --glass-blur: blur(20px);
   --radius-lg: 24px;
   --radius-md: 12px;
@@ -25,7 +23,7 @@ body {
 
 input.clean-input {
   appearance: none;
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid transparent;
   border-radius: var(--radius-md);
   padding: 12px 16px;
@@ -37,8 +35,8 @@ input.clean-input {
 
   &:focus {
     outline: none;
-    background: #fff;
-    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
+    background: rgba(44, 44, 46, 0.95);
+    box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.28);
   }
 }
 
